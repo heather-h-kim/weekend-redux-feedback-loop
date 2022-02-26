@@ -13,10 +13,10 @@ function Feeling () {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch({
-            type:"ADD_FEEDBACK",
+            type:"ADD_FEELING",
             payload:feeling
         })
-        history.pushState("/understanding")
+        history.push("/understanding")
     }
 
     return (

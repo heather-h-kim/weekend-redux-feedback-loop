@@ -3,29 +3,46 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import {Provider} from 'react-redux';
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
 const feedbackInfo = (state = {
     feeling: 0,
     understanding: 0,
     support: 0,
-    comment:''
-    }, action) => {
-    switch(action.type){
-        case'ADD_FEEDBACK':
-        return {...state, feeling:action.payload};
-        break;
-        
+    comments: ''
+}, action) => {
+    switch (action.type) {
+        case 'ADD_FEELING':
+            return { ...state, feeling: action.payload };
+            break;
+        case 'ADD_UNDERSTANDING':
+            return { ...state, understanding: action.payload };
+            break;
+        case 'ADD_SUPPORTED':
+            return { ...state, support: action.payload };
+            break;
+        case 'ADD_COMMENTS':
+            return { ...state, comments: action.payload };
+            break;
+        case 'RESET':
+            return { feeling: 0, understanding: 0, support: 0, comments:''};
+            break;
+        default:
+            console.log('Default');
+
     }
+
     return state;
 }
 
 
+
+
 const storeInstance = createStore(
     combineReducers({
-        feedBackInfo
+        feedbackInfo
     }), applyMiddleware(logger),
 );
 
