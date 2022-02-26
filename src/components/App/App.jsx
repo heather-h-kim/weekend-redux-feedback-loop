@@ -13,7 +13,7 @@ function App() {
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
-     <Route path="/Feeling">
+     <Route path="/">
        <Feeling />
      </Route> 
 
