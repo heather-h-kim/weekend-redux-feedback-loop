@@ -4,13 +4,17 @@ import {useHistory} from 'react-router-dom';
 
 function Review () {
     const feedback = useSelector(store => store.feedbackInfo);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    
     console.log('feedback is', feedback);
     const handleSubmit = () => {
         console.log('submit button clicked');
+
         axios.post('/feedback', feedback)
         .then((response) => {
             console.log('Posted the feedback', response);
-            dispatchEvent({
+            dispatch({
                 type:'RESET'
             });
             history.push('/')
