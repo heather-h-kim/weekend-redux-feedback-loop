@@ -12,11 +12,16 @@ function Supported () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({
-            type:"ADD_SUPPORTED",
-            payload:supported
-        })
-        history.push("/comments")
+        
+        if(supported === ''){
+            alert('Please indicate how well you are being supported')
+        } else{
+            dispatch({
+                type:"ADD_SUPPORTED",
+                payload:supported
+            })
+            history.push("/comments")
+        }
     }
 
     return (
@@ -25,7 +30,7 @@ function Supported () {
             <form onSubmit={handleSubmit}>
                 <input 
                     type="number" 
-                    placeholder="Your understanding"
+                    placeholder="support"
                     value={supported}
                     onChange={(event) => setSupported(event.target.value)}
                 />

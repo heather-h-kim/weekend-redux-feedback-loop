@@ -12,11 +12,15 @@ function Understanding () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({
-            type:"ADD_UNDERSTANDING",
-            payload:understanding
-        })
-        history.push("/supported")
+        if(understanding === ''){
+            alert('Please indicate the level of your understanding on the content')
+        } else{
+            dispatch({
+                type:"ADD_UNDERSTANDING",
+                payload:understanding
+            })
+            history.push("/supported")
+        }   
     }
 
     return (

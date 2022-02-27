@@ -12,11 +12,15 @@ function Feeling () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({
-            type:"ADD_FEELING",
-            payload:feeling
-        })
-        history.push("/understanding")
+        if(feeling === ''){
+            alert('Please indicate the level of your feeling');
+        } else{
+            dispatch({
+                type:"ADD_FEELING",
+                payload:feeling
+            })
+            history.push("/understanding");
+        }          
     }
 
     return (

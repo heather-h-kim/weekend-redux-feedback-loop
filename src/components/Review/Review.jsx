@@ -6,9 +6,9 @@ function Review () {
     const feedback = useSelector(store => store.feedbackInfo);
     const dispatch = useDispatch();
     const history = useHistory();
-    
+
     console.log('feedback is', feedback);
-    const handleSubmit = () => {
+    const submitFeedback = () => {
         console.log('submit button clicked');
 
         axios.post('/feedback', feedback)
@@ -29,7 +29,7 @@ function Review () {
             <p>Understanding: {feedback.understanding}</p>
             <p>Supoort: {feedback.support}</p>
             <p>Comments: {feedback.comments}</p>
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={submitFeedback}>Submit</button>
         </div>
     )
 }
