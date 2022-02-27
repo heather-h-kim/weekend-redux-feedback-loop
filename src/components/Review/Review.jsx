@@ -13,11 +13,7 @@ function Review () {
 
         axios.post('/feedback', feedback)
         .then((response) => {
-            console.log('Posted the feedback', response);
-            dispatch({
-                type:'RESET'
-            });
-            history.push('/')
+            history.push('/success')
         }).catch((error) => {
             console.log('error POSTing the feedback', error);
         })
@@ -27,7 +23,7 @@ function Review () {
             <h1>Review Your Feedback</h1>
             <p>Feeling: {feedback.feeling}</p>
             <p>Understanding: {feedback.understanding}</p>
-            <p>Supoort: {feedback.support}</p>
+            <p>Support: {feedback.support}</p>
             <p>Comments: {feedback.comments}</p>
             <button onClick={submitFeedback}>Submit</button>
         </div>
